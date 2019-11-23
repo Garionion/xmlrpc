@@ -113,7 +113,7 @@ func encodeStruct(val reflect.Value) ([]byte, error) {
 	return b.Bytes(), nil
 }
 
-var sortMapKeys bool
+var SortMapKeys bool
 
 func encodeMap(val reflect.Value) ([]byte, error) {
 	var t = val.Type()
@@ -128,7 +128,7 @@ func encodeMap(val reflect.Value) ([]byte, error) {
 
 	keys := val.MapKeys()
 
-	if sortMapKeys {
+	if SortMapKeys {
 		sort.Slice(keys, func(i, j int) bool { return keys[i].String() < keys[j].String() })
 	}
 
